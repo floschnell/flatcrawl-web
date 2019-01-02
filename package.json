@@ -1,0 +1,44 @@
+{
+  "name": "flatcrawl-web",
+  "version": "1.0.0",
+  "description": "Web frontend to personalize and configure flatcrawl.",
+  "main": "index.js",
+  "author": "Florian Schnell",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server public"
+  },
+  "devDependencies": {
+    "@babel/core": "7",
+    "@types/firebase": "^3.2.1",
+    "@types/leaflet": "^1.2.11",
+    "@types/ngeohash": "^0.6.2",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-leaflet": "^1.1.6",
+    "nodemon": "^1.18.4",
+    "rollup": "^0.66.2",
+    "rollup-plugin-alias": "^1.5.1",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "source-map-loader": "^0.2.4",
+    "tslib": "^1.9.3",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.1.1",
+    "@turf/bbox": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
+    "@turf/intersect": "^6.1.3",
+    "firebase": "^5.5.1",
+    "immer": "^1.9.3",
+    "leaflet": "^1.3.4",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-leaflet": "^2.0.1",
+    "rxjs": "^6.3.3"
+  }
+}
