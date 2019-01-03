@@ -40,5 +40,8 @@
     "react-dom": "^16.5.2",
     "react-leaflet": "^2.0.1",
     "rxjs": "^6.3.3"
+  },
+  "resolutions": {
+    "**/event-stream": "^4.0.1"
   }
 }
