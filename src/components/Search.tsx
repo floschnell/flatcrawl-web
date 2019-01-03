@@ -204,7 +204,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
 
   private requestTravelArea(location: Location, index: number): void {
     if (location.limit != null) {
-      const url = `http://localhost:3000?mode=${location.transport}&latitude=${location.geo.lat}&longitude=${location.geo.lng}&time=${location.limit * 60}`;
+      const url = `http://${window.location.hostname}:5010?mode=${location.transport}&latitude=${location.geo.lat}&longitude=${location.geo.lng}&time=${location.limit * 60}`;
       fetch(url)
         .then((result) => result.json())
         .then((data) => this.setState(produce(this.state, (draft) => { draft.locations[index].data = data })));
@@ -347,6 +347,7 @@ export default class Search extends React.Component<SearchProps, SearchState> {
           lng: parseFloat(location.geo.lng.toString()),
         },
       }));
+      draft.chats = search.chats;
       draft.user = search.user;
       draft.city = search.city;
       draft.pending = false;
