@@ -1,6 +1,7 @@
 import * as React from 'react';
 import db from "../database";
 import Search from './Search';
+import Main from './Main';
 import Grid from '@material-ui/core/Grid';
 
 declare type AppProps = {
@@ -22,22 +23,26 @@ export default class App extends React.Component<AppProps> {
   }
 
   componentDidMount() {
-    db.ref('searches')
-      .orderByKey()
-      .startAt(this.props.userId + "-1")
-      .endAt(this.props.userId + "-\uffff")
-      .on("value", (snapshot) => {
-        if (snapshot.exists()) {
-          this.setState({ searches: snapshot.val() });
-        } else {
-          this.setState({ searches: null });
-        }
-      })
+    if (this.props.userId) {
+      db.ref('searches')
+        .orderByKey()
+        .startAt(this.props.userId + "-1")
+        .endAt(this.props.userId + "-\uffff")
+        .on("value", (snapshot) => {
+          if (snapshot.exists()) {
+            this.setState({ searches: snapshot.val() });
+          } else {
+            this.setState({ searches: null });
+          }
+        });
+    } else {
+      this.setState({ searches: null });
+    }
   }
 
   render() {
     if (this.state.searches == null) {
-      return <div style={{ textAlign: "center" }}><h2 style={{ fontFamily: "Roboto", fontWeight: 500 }}>The given user id does not exist!</h2></div>;
+      return <Main></Main>;
     } else if (Object.keys(this.state.searches).length === 0) {
       return <div style={{ textAlign: "center" }}><h2 style={{ fontFamily: "Roboto", fontWeight: 500 }}>Loading ...</h2></div>;
     }

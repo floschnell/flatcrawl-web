@@ -11,12 +11,13 @@ const url_string = window.location.href;
 const url = new URL(url_string);
 const id = parseInt(url.searchParams.get("id"));
 
-render(<div>
+render(<div style={{ fontFamily: 'Roboto' }}>
   <CssBaseline />
-  <AppBar position="static" color="primary" style={{ position: "relative" }}>
+  <AppBar position="static" color="primary" style={{ background: "#1A82B6", position: "relative" }}>
     <Toolbar>
+      <img src="./img/logo.png" width="64"></img>
       <Typography variant="title" color="inherit" noWrap>
-        FlatCrawl
+        flatcrawl
     </Typography>
     </Toolbar>
   </AppBar>

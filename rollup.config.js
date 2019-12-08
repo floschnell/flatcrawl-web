@@ -5,12 +5,23 @@ import typescript from "rollup-plugin-typescript";
 import replace from "rollup-plugin-replace";
 import npm from "rollup-plugin-node-resolve";
 import json from "rollup-plugin-json";
+import md from "rollup-plugin-md";
+import copy from 'rollup-plugin-copy'
 
 export default {
   input: 'src/index.tsx',
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    copy({
+      targets: [{
+        src: './src/img/**',
+        dest: './public/img/'
+      }]
+    }),
+    md({
+      marked: {}
     }),
     json(),
     npm({
